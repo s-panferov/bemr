@@ -1,4 +1,4 @@
-declare module "bem-classes" {
+declare module "bemr" {
     export interface ClassManager {
         mod(...name: string[]): ClassManager;
         cmod(condition: boolean, ...name: string[]): ClassManager;
