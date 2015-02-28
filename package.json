@@ -1,0 +1,26 @@
+{
+  "name": "bemr",
+  "version": "0.1.0",
+  "description": "Utils to generate class names in BEM notation",
+  "main": "./dist/index.js",
+  "typescript": {
+    "main": "./index.ts",
+    "definition": "./index.d.ts"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "monad",
+    "option",
+    "typescript"
+  ],
+  "author": "Stanislav Panferov <fnight.m@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-ts": "^3.0.0",
+    "grunt-contrib-clean": "^0.6.0",
+    "load-grunt-tasks": "^0.6.0"
+  }
+}
