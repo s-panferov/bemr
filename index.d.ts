@@ -1,7 +1,8 @@
 declare module "bemr" {
     export interface ClassManager {
+        valMod(...name: string[]): ClassManager;
         mod(...name: string[]): ClassManager;
-        cmod(condition: boolean, ...name: string[]): ClassManager;
+        modIf(condition: boolean, ...name: string[]): ClassManager;
         toString(): string;
         before(...other: ToString[]): ClassManager;
         after(...other: ToString[]): ClassManager;
@@ -11,8 +12,9 @@ declare module "bemr" {
     }
     export class Block implements ClassManager, ToString {
         constructor(block: string);
+        valMod(...name: string[]): Block;
         mod(...mod: string[]): Block;
-        cmod(condition: boolean, ...mod: string[]): Block;
+        modIf(condition: boolean, ...mod: string[]): Block;
         toString(): string;
         el(el: string): Block;
         after(...other: ToString[]): Block;

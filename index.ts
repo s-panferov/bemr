@@ -1,6 +1,7 @@
 export interface ClassManager {
+    valMod(mod: string, value: string): ClassManager;
     mod(...name: string[]): ClassManager;
-    cmod(condition: boolean, ...name: string[]): ClassManager;
+    modIf(condition: boolean, ...name: string[]): ClassManager;
     toString(): string;
     before(...other: ToString[]): ClassManager;
     after(...other: ToString[]): ClassManager;
@@ -20,12 +21,17 @@ export class Block implements ClassManager, ToString {
         this.name = block;
     }
 
+    valMod(mod: string, value: string): Block {
+        this.modifiers.push(mod + "_" + value);
+        return this;
+    }
+
     mod(...mod: string[]): Block {
         this.modifiers.push.apply(this.modifiers, mod);
         return this;
     }
 
-    cmod(condition: boolean, ...mod: string[]): Block {
+    modIf(condition: boolean, ...mod: string[]): Block {
         if (condition) {
             this.mod.apply(this, mod);
         }

@@ -5,6 +5,10 @@ var Block = (function () {
         this.afters = [];
         this.name = block;
     }
+    Block.prototype.valMod = function (mod, value) {
+        this.modifiers.push(mod + "_" + value);
+        return this;
+    };
     Block.prototype.mod = function () {
         var mod = [];
         for (var _i = 0; _i < arguments.length; _i++) {
@@ -13,7 +17,7 @@ var Block = (function () {
         this.modifiers.push.apply(this.modifiers, mod);
         return this;
     };
-    Block.prototype.cmod = function (condition) {
+    Block.prototype.modIf = function (condition) {
         var mod = [];
         for (var _i = 1; _i < arguments.length; _i++) {
             mod[_i - 1] = arguments[_i];

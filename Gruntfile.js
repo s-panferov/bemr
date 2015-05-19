@@ -7,8 +7,7 @@ module.exports = function(grunt) {
             default : {
                 options: {
                     module: "commonjs",
-                    noImplicitAny: true,
-                    declaration: true
+                    noImplicitAny: true
                 },
                 src: 'index.ts',
                 outDir: 'dist'
